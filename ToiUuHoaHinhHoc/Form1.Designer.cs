@@ -25,148 +25,57 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.note = new System.Windows.Forms.Label();
-            this.probar = new System.Windows.Forms.ProgressBar();
-            this.line1 = new System.Windows.Forms.Label();
-            this.line2 = new System.Windows.Forms.Label();
-            this.txtb1 = new System.Windows.Forms.TextBox();
-            this.txta12 = new System.Windows.Forms.TextBox();
-            this.txtb2 = new System.Windows.Forms.TextBox();
-            this.txta22 = new System.Windows.Forms.TextBox();
-            this.txta21 = new System.Windows.Forms.TextBox();
-            this.txta11 = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToiUu));
             this.dk = new System.Windows.Forms.Label();
-            this.goal = new System.Windows.Forms.Label();
-            this.txtc2 = new System.Windows.Forms.TextBox();
-            this.txtc1 = new System.Windows.Forms.TextBox();
             this.sol = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
-            this.ans = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.paintArea = new System.Windows.Forms.Panel();
+            this.credit = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.given = new System.Windows.Forms.Panel();
             this.mm = new System.Windows.Forms.ComboBox();
-            this.scroll = new System.Windows.Forms.VScrollBar();
+            this.txtc2 = new System.Windows.Forms.TextBox();
+            this.txtc1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.note = new System.Windows.Forms.Label();
+            this.goal = new System.Windows.Forms.Label();
+            this.add = new System.Windows.Forms.Button();
+            this.solve = new System.Windows.Forms.Panel();
+            this.restart = new System.Windows.Forms.Button();
+            this.ans = new System.Windows.Forms.Label();
+            this.probar = new System.Windows.Forms.ProgressBar();
+            this.paintArea = new System.Windows.Forms.Panel();
+            this.exit = new System.Windows.Forms.Button();
+            this.infor = new System.Windows.Forms.Label();
+            this.grid = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
+            this.credit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.given.SuspendLayout();
+            this.solve.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // note
-            // 
-            this.note.AutoSize = true;
-            this.note.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.note.Location = new System.Drawing.Point(12, 9);
-            this.note.Name = "note";
-            this.note.Size = new System.Drawing.Size(405, 19);
-            this.note.TabIndex = 0;
-            this.note.Text = "Chú ý khi sử dụng: cần đưa về dạng chuẩn tắc";
-            // 
-            // probar
-            // 
-            this.probar.Location = new System.Drawing.Point(16, 210);
-            this.probar.Name = "probar";
-            this.probar.Size = new System.Drawing.Size(471, 12);
-            this.probar.TabIndex = 5;
-            this.probar.Visible = false;
-            // 
-            // line1
-            // 
-            this.line1.AutoSize = true;
-            this.line1.Location = new System.Drawing.Point(139, 88);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(234, 19);
-            this.line1.TabIndex = 6;
-            this.line1.Text = "        x1 +        x2 <=";
-            // 
-            // line2
-            // 
-            this.line2.AutoSize = true;
-            this.line2.Location = new System.Drawing.Point(139, 125);
-            this.line2.Name = "line2";
-            this.line2.Size = new System.Drawing.Size(234, 19);
-            this.line2.TabIndex = 7;
-            this.line2.Text = "        x1 +        x2 <=";
-            // 
-            // txtb1
-            // 
-            this.txtb1.Location = new System.Drawing.Point(379, 81);
-            this.txtb1.Name = "txtb1";
-            this.txtb1.Size = new System.Drawing.Size(63, 26);
-            this.txtb1.TabIndex = 6;
-            // 
-            // txta12
-            // 
-            this.txta12.Location = new System.Drawing.Point(253, 81);
-            this.txta12.Name = "txta12";
-            this.txta12.Size = new System.Drawing.Size(63, 26);
-            this.txta12.TabIndex = 5;
-            // 
-            // txtb2
-            // 
-            this.txtb2.Location = new System.Drawing.Point(379, 118);
-            this.txtb2.Name = "txtb2";
-            this.txtb2.Size = new System.Drawing.Size(63, 26);
-            this.txtb2.TabIndex = 9;
-            // 
-            // txta22
-            // 
-            this.txta22.Location = new System.Drawing.Point(253, 118);
-            this.txta22.Name = "txta22";
-            this.txta22.Size = new System.Drawing.Size(63, 26);
-            this.txta22.TabIndex = 8;
-            // 
-            // txta21
-            // 
-            this.txta21.Location = new System.Drawing.Point(143, 118);
-            this.txta21.Name = "txta21";
-            this.txta21.Size = new System.Drawing.Size(63, 26);
-            this.txta21.TabIndex = 7;
-            // 
-            // txta11
-            // 
-            this.txta11.Location = new System.Drawing.Point(143, 81);
-            this.txta11.Name = "txta11";
-            this.txta11.Size = new System.Drawing.Size(63, 26);
-            this.txta11.TabIndex = 4;
             // 
             // dk
             // 
             this.dk.AutoSize = true;
-            this.dk.Location = new System.Drawing.Point(139, 147);
+            this.dk.Location = new System.Drawing.Point(141, 77);
             this.dk.Name = "dk";
             this.dk.Size = new System.Drawing.Size(81, 19);
             this.dk.TabIndex = 17;
             this.dk.Text = "x1,x2>=0";
             // 
-            // goal
-            // 
-            this.goal.AutoSize = true;
-            this.goal.Location = new System.Drawing.Point(12, 41);
-            this.goal.Name = "goal";
-            this.goal.Size = new System.Drawing.Size(387, 19);
-            this.goal.TabIndex = 18;
-            this.goal.Text = "Hàm mục tiêu:         x1 +        x2 ---> ";
-            // 
-            // txtc2
-            // 
-            this.txtc2.Location = new System.Drawing.Point(253, 34);
-            this.txtc2.Name = "txtc2";
-            this.txtc2.Size = new System.Drawing.Size(63, 26);
-            this.txtc2.TabIndex = 2;
-            // 
-            // txtc1
-            // 
-            this.txtc1.Location = new System.Drawing.Point(143, 34);
-            this.txtc1.Name = "txtc1";
-            this.txtc1.Size = new System.Drawing.Size(63, 26);
-            this.txtc1.TabIndex = 1;
-            // 
             // sol
             // 
             this.sol.BackColor = System.Drawing.Color.Tomato;
-            this.sol.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.sol.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sol.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.sol.ForeColor = System.Drawing.Color.Snow;
-            this.sol.Location = new System.Drawing.Point(219, 167);
+            this.sol.Location = new System.Drawing.Point(0, 261);
             this.sol.Name = "sol";
-            this.sol.Size = new System.Drawing.Size(75, 40);
+            this.sol.Size = new System.Drawing.Size(510, 40);
             this.sol.TabIndex = 10;
             this.sol.Text = "Giải";
             this.sol.UseVisualStyleBackColor = false;
@@ -174,42 +83,63 @@
             // 
             // panel
             // 
-            this.panel.Controls.Add(this.ans);
-            this.panel.Controls.Add(this.label1);
-            this.panel.Controls.Add(this.paintArea);
-            this.panel.Controls.Add(this.mm);
-            this.panel.Controls.Add(this.scroll);
-            this.panel.Controls.Add(this.goal);
+            this.panel.AutoScroll = true;
+            this.panel.Controls.Add(this.credit);
+            this.panel.Controls.Add(this.given);
+            this.panel.Controls.Add(this.solve);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(510, 741);
+            this.panel.Size = new System.Drawing.Size(994, 581);
             this.panel.TabIndex = 23;
             // 
-            // ans
+            // credit
             // 
-            this.ans.AutoSize = true;
-            this.ans.Location = new System.Drawing.Point(56, 667);
-            this.ans.Name = "ans";
-            this.ans.Size = new System.Drawing.Size(0, 19);
-            this.ans.TabIndex = 21;
+            this.credit.Controls.Add(this.pictureBox2);
+            this.credit.Controls.Add(this.pictureBox1);
+            this.credit.Location = new System.Drawing.Point(11, 334);
+            this.credit.Name = "credit";
+            this.credit.Size = new System.Drawing.Size(510, 233);
+            this.credit.TabIndex = 24;
             // 
-            // label1
+            // pictureBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 19);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Các ràng buộc:";
+            this.pictureBox2.Image = global::ToiUuHoaHinhHoc.Properties.Resources.giphy;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(195, 226);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
-            // paintArea
+            // pictureBox1
             // 
-            this.paintArea.BackColor = System.Drawing.SystemColors.Window;
-            this.paintArea.Location = new System.Drawing.Point(41, 228);
-            this.paintArea.Name = "paintArea";
-            this.paintArea.Size = new System.Drawing.Size(420, 420);
-            this.paintArea.TabIndex = 19;
+            this.pictureBox1.Image = global::ToiUuHoaHinhHoc.Properties.Resources.unnamed;
+            this.pictureBox1.Location = new System.Drawing.Point(205, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(302, 226);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // given
+            // 
+            this.given.AutoScroll = true;
+            this.given.Controls.Add(this.label3);
+            this.given.Controls.Add(this.infor);
+            this.given.Controls.Add(this.mm);
+            this.given.Controls.Add(this.txtc2);
+            this.given.Controls.Add(this.txtc1);
+            this.given.Controls.Add(this.label1);
+            this.given.Controls.Add(this.note);
+            this.given.Controls.Add(this.goal);
+            this.given.Controls.Add(this.sol);
+            this.given.Controls.Add(this.add);
+            this.given.Controls.Add(this.dk);
+            this.given.Location = new System.Drawing.Point(11, 12);
+            this.given.Name = "given";
+            this.given.Size = new System.Drawing.Size(510, 301);
+            this.given.TabIndex = 0;
             // 
             // mm
             // 
@@ -217,71 +147,213 @@
             this.mm.Items.AddRange(new object[] {
             "max",
             "min"});
-            this.mm.Location = new System.Drawing.Point(394, 33);
+            this.mm.Location = new System.Drawing.Point(384, 44);
             this.mm.Name = "mm";
             this.mm.Size = new System.Drawing.Size(74, 27);
-            this.mm.TabIndex = 3;
+            this.mm.TabIndex = 26;
             this.mm.SelectedIndexChanged += new System.EventHandler(this.mm_SelectedIndexChanged);
             // 
-            // scroll
+            // txtc2
             // 
-            this.scroll.Dock = System.Windows.Forms.DockStyle.Right;
-            this.scroll.Location = new System.Drawing.Point(493, 0);
-            this.scroll.Name = "scroll";
-            this.scroll.Size = new System.Drawing.Size(17, 741);
-            this.scroll.TabIndex = 0;
+            this.txtc2.Location = new System.Drawing.Point(244, 45);
+            this.txtc2.Name = "txtc2";
+            this.txtc2.Size = new System.Drawing.Size(63, 26);
+            this.txtc2.TabIndex = 25;
+            // 
+            // txtc1
+            // 
+            this.txtc1.Location = new System.Drawing.Point(135, 45);
+            this.txtc1.Name = "txtc1";
+            this.txtc1.Size = new System.Drawing.Size(63, 26);
+            this.txtc1.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 19);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Các ràng buộc:";
+            // 
+            // note
+            // 
+            this.note.AutoSize = true;
+            this.note.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.note.Location = new System.Drawing.Point(3, 3);
+            this.note.Name = "note";
+            this.note.Size = new System.Drawing.Size(405, 19);
+            this.note.TabIndex = 21;
+            this.note.Text = "Chú ý khi sử dụng: cần đưa về dạng chuẩn tắc";
+            // 
+            // goal
+            // 
+            this.goal.AutoSize = true;
+            this.goal.Location = new System.Drawing.Point(3, 48);
+            this.goal.Name = "goal";
+            this.goal.Size = new System.Drawing.Size(387, 19);
+            this.goal.TabIndex = 22;
+            this.goal.Text = "Hàm mục tiêu:         x1 +        x2 ---> ";
+            // 
+            // add
+            // 
+            this.add.Location = new System.Drawing.Point(228, 73);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(20, 23);
+            this.add.TabIndex = 0;
+            this.add.Text = "+";
+            this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
+            // 
+            // solve
+            // 
+            this.solve.Controls.Add(this.grid);
+            this.solve.Controls.Add(this.exit);
+            this.solve.Controls.Add(this.restart);
+            this.solve.Controls.Add(this.ans);
+            this.solve.Controls.Add(this.probar);
+            this.solve.Controls.Add(this.paintArea);
+            this.solve.Controls.Add(this.label2);
+            this.solve.Location = new System.Drawing.Point(527, 9);
+            this.solve.Name = "solve";
+            this.solve.Size = new System.Drawing.Size(451, 558);
+            this.solve.TabIndex = 23;
+            // 
+            // restart
+            // 
+            this.restart.BackColor = System.Drawing.Color.Turquoise;
+            this.restart.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.restart.Location = new System.Drawing.Point(127, 522);
+            this.restart.Name = "restart";
+            this.restart.Size = new System.Drawing.Size(102, 33);
+            this.restart.TabIndex = 25;
+            this.restart.Text = "Làm tiếp";
+            this.restart.UseVisualStyleBackColor = false;
+            this.restart.Click += new System.EventHandler(this.restart_Click);
+            // 
+            // ans
+            // 
+            this.ans.AutoSize = true;
+            this.ans.Location = new System.Drawing.Point(30, 466);
+            this.ans.Name = "ans";
+            this.ans.Size = new System.Drawing.Size(216, 19);
+            this.ans.TabIndex = 24;
+            this.ans.Text = "Lời giải sẽ hiện ở đây.";
+            // 
+            // probar
+            // 
+            this.probar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.probar.Location = new System.Drawing.Point(0, 0);
+            this.probar.Name = "probar";
+            this.probar.Size = new System.Drawing.Size(451, 17);
+            this.probar.TabIndex = 22;
+            this.probar.Visible = false;
+            // 
+            // paintArea
+            // 
+            this.paintArea.BackColor = System.Drawing.SystemColors.Window;
+            this.paintArea.Location = new System.Drawing.Point(15, 25);
+            this.paintArea.Name = "paintArea";
+            this.paintArea.Size = new System.Drawing.Size(420, 420);
+            this.paintArea.TabIndex = 19;
+            // 
+            // exit
+            // 
+            this.exit.BackColor = System.Drawing.Color.Orchid;
+            this.exit.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.exit.Location = new System.Drawing.Point(235, 522);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(102, 33);
+            this.exit.TabIndex = 26;
+            this.exit.Text = "Kết thúc";
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
+            // infor
+            // 
+            this.infor.AutoSize = true;
+            this.infor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.infor.Location = new System.Drawing.Point(248, 82);
+            this.infor.Name = "infor";
+            this.infor.Size = new System.Drawing.Size(105, 14);
+            this.infor.TabIndex = 27;
+            this.infor.Text = "Thêm ràng buộc";
+            // 
+            // grid
+            // 
+            this.grid.BackColor = System.Drawing.Color.Lime;
+            this.grid.Location = new System.Drawing.Point(406, 448);
+            this.grid.Name = "grid";
+            this.grid.Size = new System.Drawing.Size(28, 23);
+            this.grid.TabIndex = 27;
+            this.grid.UseVisualStyleBackColor = false;
+            this.grid.Click += new System.EventHandler(this.grid_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(320, 453);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 14);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Grid on/off";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label3.Location = new System.Drawing.Point(3, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(459, 19);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Bấm làm tiếp để làm thêm bài (chỉ làm 1 bài 1 lần)";
             // 
             // ToiUu
             // 
-            this.ClientSize = new System.Drawing.Size(510, 741);
-            this.Controls.Add(this.sol);
-            this.Controls.Add(this.txtc2);
-            this.Controls.Add(this.txtc1);
-            this.Controls.Add(this.dk);
-            this.Controls.Add(this.txta11);
-            this.Controls.Add(this.txta21);
-            this.Controls.Add(this.txtb2);
-            this.Controls.Add(this.txta22);
-            this.Controls.Add(this.txtb1);
-            this.Controls.Add(this.txta12);
-            this.Controls.Add(this.line2);
-            this.Controls.Add(this.line1);
-            this.Controls.Add(this.probar);
-            this.Controls.Add(this.note);
+            this.ClientSize = new System.Drawing.Size(994, 581);
             this.Controls.Add(this.panel);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ToiUu";
-            this.Text = "Hình học";
+            this.Text = "Phương pháp hình học - Quy hoạch tuyến tính";
             this.panel.ResumeLayout(false);
-            this.panel.PerformLayout();
+            this.credit.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.given.ResumeLayout(false);
+            this.given.PerformLayout();
+            this.solve.ResumeLayout(false);
+            this.solve.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label note;
-        private System.Windows.Forms.ProgressBar probar;
-        private System.Windows.Forms.Label line1;
-        private System.Windows.Forms.Label line2;
-        private System.Windows.Forms.TextBox txtb1;
-        private System.Windows.Forms.TextBox txta12;
-        private System.Windows.Forms.TextBox txtb2;
-        private System.Windows.Forms.TextBox txta22;
-        private System.Windows.Forms.TextBox txta21;
-        private System.Windows.Forms.TextBox txta11;
         private System.Windows.Forms.Label dk;
-        private System.Windows.Forms.Label goal;
-        private System.Windows.Forms.TextBox txtc2;
-        private System.Windows.Forms.TextBox txtc1;
         private System.Windows.Forms.Button sol;
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.VScrollBar scroll;
-        private System.Windows.Forms.ComboBox mm;
         private System.Windows.Forms.Panel paintArea;
+        private System.Windows.Forms.Panel given;
+        private System.Windows.Forms.Button add;
+        private System.Windows.Forms.ProgressBar probar;
+        private System.Windows.Forms.Panel solve;
         private System.Windows.Forms.Label ans;
+        private System.Windows.Forms.Panel credit;
+        private System.Windows.Forms.ComboBox mm;
+        private System.Windows.Forms.TextBox txtc2;
+        private System.Windows.Forms.TextBox txtc1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label note;
+        private System.Windows.Forms.Label goal;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button restart;
+        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Label infor;
+        private System.Windows.Forms.Button grid;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

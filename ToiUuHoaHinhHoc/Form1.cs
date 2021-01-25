@@ -8,28 +8,67 @@ namespace ToiUuHoaHinhHoc
 {
     public partial class ToiUu : Form
     {
+        private List<Bound> bounds = new List<Bound>();
+        private int locatex = 135, locatey = 100;
+        private float xwmin, ywmin, xwmax, ywmax;
+        private float xvmin, yvmin, xvmax, yvmax;
+        private float tlx, tly;
+
+        private List<PointF> crossPoints = new List<PointF>();
+        private List<PointF> boundPoints = new List<PointF>();
+        private List<PointF> points = new List<PointF>();  // các điểm được chọn
+        private List<Line> lines = new List<Line>();
+        private List<Line> boundLines = new List<Line>(); // các đường để vẽ
+
         public ToiUu() {
             InitializeComponent();
             List<String> val = new List<String> { "max", "min" };
             mm.DataSource = val;
             mm.DropDownStyle = ComboBoxStyle.DropDownList;
-            Controls.Add(scroll);
+        }
+
+        private PointF ConvertPoint(PointF p) {
+            float xm = tlx * (p.X - xwmin) + xvmin;
+            float ym = tly * (ywmax - p.Y) + yvmin;
+            return new PointF(xm, ym);
+        }
+
+        private void showGrid(int mode) {
+            if (boundLines.Count == 0) return;
+            Graphics surface = paintArea.CreateGraphics();
+            Pen grayPen = new Pen(Color.DarkGray, 1);
+            if (mode == 0) grayPen.Color = Color.White;
+            for (int i = -1; i < (int)xwmax; i++) {
+                List<PointF> gp = new List<PointF>();
+                Line l = new Line(0, 1, -i);
+                foreach (Line line in boundLines) {
+                    PointF tmp = Line.findIntersect(l, line);
+                    if (tmp.X != -1 || tmp.Y != -1) gp.Add(tmp);
+                }
+                surface.DrawLine(grayPen, ConvertPoint(gp[0]), ConvertPoint(gp[1]));
+                l = new Line(1, 0, -i);
+                foreach (Line line in boundLines) {
+                    PointF tmp = Line.findIntersect(l, line);
+                    if (tmp.X != -1 || tmp.Y != -1) gp.Add(tmp);
+                }
+                surface.DrawLine(grayPen, ConvertPoint(gp[2]), ConvertPoint(gp[3]));
+            }
+            draw();
         }
 
         private void sol_Click(object sender, EventArgs e) {
             //lấy các giá trị
             probar.Visible = true;
             probar.Value = 0;
-            float c1, c2, a11, a12, a21, a22, b1, b2;
+            float c1, c2;
             try {
                 c1 = float.Parse(txtc1.Text);
                 c2 = float.Parse(txtc2.Text);
-                a11 = float.Parse(txta11.Text);
-                a12 = float.Parse(txta12.Text);
-                a21 = float.Parse(txta21.Text);
-                a22 = float.Parse(txta22.Text);
-                b1 = float.Parse(txtb1.Text);
-                b2 = float.Parse(txtb2.Text);
+                foreach (Bound b in bounds) {
+                    if (!b.check()) {
+                        throw new Exception();
+                    }
+                }
             }
             catch (Exception) {
                 MessageBox.Show("Vui lòng nhập đúng các thông tin.", "Thông báo");
@@ -38,17 +77,13 @@ namespace ToiUuHoaHinhHoc
             probar.Value = 20;
 
             // tính toán
-            List<PointF> crossPoints = new List<PointF>();
-            List<PointF> boundPoints = new List<PointF>();
-            List<PointF> points = new List<PointF>();
 
             // thêm các điểm giao nhau
-            List<Line> lines = new List<Line>();
-            lines.Add(new Line(a11, a12, -b1));
-            lines.Add(new Line(a21, a22, -b2));
+            foreach (Bound b in bounds) {
+                lines.Add(b.getLine());
+            }
             lines.Add(new Line(0, 1, 0));
             lines.Add(new Line(1, 0, 0));
-
             float maxx = 0, maxy = 0;
             for (int i = 0; i < lines.Count; i++) {
                 for (int j = i + 1; j < lines.Count; j++) {
@@ -64,15 +99,14 @@ namespace ToiUuHoaHinhHoc
 
             // thêm các điểm giao giới hạn trên và phải'
             //window
-            float xwmin = -2, ywmin = -2, xwmax = Math.Max(maxx, maxy), ywmax = xwmax;
-            List<Line> bounds = new List<Line>();
-            bounds.Add(new Line(1, 0, -xwmin));
-            bounds.Add(new Line(1, 0, -xwmax));
-            bounds.Add(new Line(0, 1, -ywmin));
-            bounds.Add(new Line(0, 1, -ywmax));
+            xwmin = -2; ywmin = -2; xwmax = Math.Max(maxx, maxy); ywmax = xwmax;
+            boundLines.Add(new Line(1, 0, -xwmin));
+            boundLines.Add(new Line(1, 0, -xwmax));
+            boundLines.Add(new Line(0, 1, -ywmin));
+            boundLines.Add(new Line(0, 1, -ywmax));
             for (int i = 0; i < lines.Count; i++) {
                 for (int j = 0; j < 4; j++) {
-                    PointF tmp = Line.findIntersect(lines[i], bounds[j]);
+                    PointF tmp = Line.findIntersect(lines[i], boundLines[j]);
                     if (tmp.X != -1 || tmp.Y != -1) boundPoints.Add(tmp);
                 }
             }
@@ -110,7 +144,7 @@ namespace ToiUuHoaHinhHoc
                 }
             }
             else {
-                // all >=
+                // >=
                 foreach (PointF p in boundPoints) {
                     bool canGet = true;
                     if (p.X < 0 || p.Y < 0) {
@@ -138,7 +172,6 @@ namespace ToiUuHoaHinhHoc
                     if (canGet) points.Add(p);
                 }
             }
-            probar.Value = 40;
 
             //tìm điểm tối ưu
             Line def = new Line(c1, c2, 0);
@@ -172,22 +205,26 @@ namespace ToiUuHoaHinhHoc
                 ans.Text = "Điểm tối ưu là (" + ansPoint.X + " , " + ansPoint.Y + ")\n với giá trị hàm mục tiêu: " + ansValue;
             else
                 ans.Text = "Không có lời giải tối ưu cho bài toán.";
-            probar.Value = 60;
+            probar.Value = 40;
 
             //vẽ
+            showGrid(1);
+            int mode;
+            if (grid.BackColor.Equals(Color.Lime))
+                mode = 1;
+            else
+                mode = 0;
+
+            showGrid(mode);
+        }
+
+        private void draw() {
             //xây dựng hệ tọa độ
-            float xvmin = 0, yvmin = 0, xvmax = 420, yvmax = 420;
-            float tlx, tly;
+            xvmin = 0; yvmin = 0; xvmax = 420; yvmax = 420;
             tlx = (xvmax - xvmin) / (xwmax - xwmin);
             tly = (yvmax - yvmin) / (ywmax - ywmin);
 
             Graphics surface = paintArea.CreateGraphics();
-
-            PointF ConvertPoint(PointF p) {
-                float xm = tlx * (p.X - xwmin) + xvmin;
-                float ym = tly * (ywmax - p.Y) + yvmin;
-                return new PointF(xm, ym);
-            }
 
             //vẽ các đường thẳng cần thiết
             Pen blackPen = new Pen(Color.Black, 2);
@@ -198,8 +235,7 @@ namespace ToiUuHoaHinhHoc
                 else
                     surface.DrawLine(blackPen, ConvertPoint(boundPoints[i]), ConvertPoint(boundPoints[i + 1]));
             }
-            // surface.DrawLine(blackPen, );
-            probar.Value = 80;
+            probar.Value = 60;
 
             // vẽ vùng được chọn
             List<PointF> drawPoints = new List<PointF>();
@@ -208,9 +244,6 @@ namespace ToiUuHoaHinhHoc
             foreach (PointF p in points) {
                 drawPoints.Add(ConvertPoint(p));
             }
-
-            //drawPoints = drawPoints.OrderBy(x => Math.Atan2(x.X, x.Y)).ToList();
-            //MessageBox.Show("Test: " + points.Count);
 
             // vẽee
             if (drawPoints.Count > 2) {
@@ -225,19 +258,42 @@ namespace ToiUuHoaHinhHoc
                 surface.DrawLine(redPen, new PointF(p.X - 4, p.Y), new PointF(p.X + 4, p.Y));
             }
             probar.Value = 100;
-
-            //in ra kết quả
         }
 
         private void mm_SelectedIndexChanged(object sender, EventArgs e) {
-            if (mm.SelectedValue.ToString() == "max") {
-                line1.Text = "        x1 +        x2 <=";
-                line2.Text = "        x1 +        x2 <=";
+            foreach (Bound b in bounds) {
+                b.changeType(mm.SelectedValue.ToString());
+            }
+        }
+
+        private void restart_Click(object sender, EventArgs e) {
+            Application.Restart();
+        }
+
+        private void exit_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        private void grid_Click(object sender, EventArgs e) {
+            if (grid.BackColor.Equals(Color.Lime)) {
+                grid.BackColor = Color.Red;
+                showGrid(0);
             }
             else {
-                line1.Text = "        x1 +        x2 >=";
-                line2.Text = "        x1 +        x2 >=";
+                grid.BackColor = Color.Lime;
+                showGrid(1);
             }
+        }
+
+        private void add_Click(object sender, EventArgs e) {
+            Bound b = new Bound(locatex, locatey, "max");
+            bounds.Add(b);
+            locatey += 35;
+
+            given.Controls.Add(b.a1);
+            given.Controls.Add(b.a2);
+            given.Controls.Add(b.b);
+            given.Controls.Add(b.lbl);
         }
     }
 }
