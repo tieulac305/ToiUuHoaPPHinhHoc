@@ -60,6 +60,9 @@ namespace ToiUuHoaHinhHoc
             //lấy các giá trị
             probar.Visible = true;
             probar.Value = 0;
+
+            bool isMax = mm.SelectedValue.ToString().Equals("max");
+            //MessageBox.Show("Test: " + isMax);
             float c1, c2;
             try {
                 c1 = float.Parse(txtc1.Text);
@@ -80,7 +83,7 @@ namespace ToiUuHoaHinhHoc
 
             // thêm các điểm giao nhau
             foreach (Bound b in bounds) {
-                lines.Add(b.getLine());
+                lines.Add(b.getLine(isMax));
             }
             lines.Add(new Line(0, 1, 0));
             lines.Add(new Line(1, 0, 0));
@@ -111,8 +114,6 @@ namespace ToiUuHoaHinhHoc
                 }
             }
             // lấy các điểm giao nhau thỏa mãn
-            bool isMax = mm.SelectedValue.ToString().Equals("max");
-            //MessageBox.Show("Test: " + isMax);
             float eps = 0.001f;
             if (isMax) {
                 // <=
@@ -260,12 +261,6 @@ namespace ToiUuHoaHinhHoc
             probar.Value = 100;
         }
 
-        private void mm_SelectedIndexChanged(object sender, EventArgs e) {
-            foreach (Bound b in bounds) {
-                b.changeType(mm.SelectedValue.ToString());
-            }
-        }
-
         private void restart_Click(object sender, EventArgs e) {
             Application.Restart();
         }
@@ -290,10 +285,7 @@ namespace ToiUuHoaHinhHoc
             bounds.Add(b);
             locatey += 35;
 
-            given.Controls.Add(b.a1);
-            given.Controls.Add(b.a2);
-            given.Controls.Add(b.b);
-            given.Controls.Add(b.lbl);
+            b.showOn(given);
         }
     }
 }

@@ -33,6 +33,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.given = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.infor = new System.Windows.Forms.Label();
             this.mm = new System.Windows.Forms.ComboBox();
             this.txtc2 = new System.Windows.Forms.TextBox();
             this.txtc1 = new System.Windows.Forms.TextBox();
@@ -41,15 +43,13 @@
             this.goal = new System.Windows.Forms.Label();
             this.add = new System.Windows.Forms.Button();
             this.solve = new System.Windows.Forms.Panel();
+            this.grid = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
             this.restart = new System.Windows.Forms.Button();
             this.ans = new System.Windows.Forms.Label();
             this.probar = new System.Windows.Forms.ProgressBar();
             this.paintArea = new System.Windows.Forms.Panel();
-            this.exit = new System.Windows.Forms.Button();
-            this.infor = new System.Windows.Forms.Label();
-            this.grid = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
             this.credit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -141,8 +141,29 @@
             this.given.Size = new System.Drawing.Size(510, 301);
             this.given.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label3.Location = new System.Drawing.Point(3, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(459, 19);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Bấm làm tiếp để làm thêm bài (chỉ làm 1 bài 1 lần)";
+            // 
+            // infor
+            // 
+            this.infor.AutoSize = true;
+            this.infor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.infor.Location = new System.Drawing.Point(248, 82);
+            this.infor.Name = "infor";
+            this.infor.Size = new System.Drawing.Size(105, 14);
+            this.infor.TabIndex = 27;
+            this.infor.Text = "Thêm ràng buộc";
+            // 
             // mm
             // 
+            this.mm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mm.FormattingEnabled = true;
             this.mm.Items.AddRange(new object[] {
             "max",
@@ -151,7 +172,6 @@
             this.mm.Name = "mm";
             this.mm.Size = new System.Drawing.Size(74, 27);
             this.mm.TabIndex = 26;
-            this.mm.SelectedIndexChanged += new System.EventHandler(this.mm_SelectedIndexChanged);
             // 
             // txtc2
             // 
@@ -219,6 +239,28 @@
             this.solve.Size = new System.Drawing.Size(451, 558);
             this.solve.TabIndex = 23;
             // 
+            // grid
+            // 
+            this.grid.BackColor = System.Drawing.Color.Lime;
+            this.grid.Location = new System.Drawing.Point(406, 448);
+            this.grid.Name = "grid";
+            this.grid.Size = new System.Drawing.Size(28, 23);
+            this.grid.TabIndex = 27;
+            this.grid.UseVisualStyleBackColor = false;
+            this.grid.Click += new System.EventHandler(this.grid_Click);
+            // 
+            // exit
+            // 
+            this.exit.BackColor = System.Drawing.Color.Orchid;
+            this.exit.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.exit.Location = new System.Drawing.Point(235, 522);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(102, 33);
+            this.exit.TabIndex = 26;
+            this.exit.Text = "Kết thúc";
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // restart
             // 
             this.restart.BackColor = System.Drawing.Color.Turquoise;
@@ -257,38 +299,6 @@
             this.paintArea.Size = new System.Drawing.Size(420, 420);
             this.paintArea.TabIndex = 19;
             // 
-            // exit
-            // 
-            this.exit.BackColor = System.Drawing.Color.Orchid;
-            this.exit.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.exit.Location = new System.Drawing.Point(235, 522);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(102, 33);
-            this.exit.TabIndex = 26;
-            this.exit.Text = "Kết thúc";
-            this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
-            // 
-            // infor
-            // 
-            this.infor.AutoSize = true;
-            this.infor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.infor.Location = new System.Drawing.Point(248, 82);
-            this.infor.Name = "infor";
-            this.infor.Size = new System.Drawing.Size(105, 14);
-            this.infor.TabIndex = 27;
-            this.infor.Text = "Thêm ràng buộc";
-            // 
-            // grid
-            // 
-            this.grid.BackColor = System.Drawing.Color.Lime;
-            this.grid.Location = new System.Drawing.Point(406, 448);
-            this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(28, 23);
-            this.grid.TabIndex = 27;
-            this.grid.UseVisualStyleBackColor = false;
-            this.grid.Click += new System.EventHandler(this.grid_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -298,16 +308,6 @@
             this.label2.Size = new System.Drawing.Size(84, 14);
             this.label2.TabIndex = 29;
             this.label2.Text = "Grid on/off";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(3, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(459, 19);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Bấm làm tiếp để làm thêm bài (chỉ làm 1 bài 1 lần)";
             // 
             // ToiUu
             // 
