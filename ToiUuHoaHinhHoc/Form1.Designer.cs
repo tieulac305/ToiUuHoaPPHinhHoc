@@ -33,7 +33,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.given = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.infor = new System.Windows.Forms.Label();
             this.mm = new System.Windows.Forms.ComboBox();
             this.txtc2 = new System.Windows.Forms.TextBox();
@@ -125,7 +124,6 @@
             // given
             // 
             this.given.AutoScroll = true;
-            this.given.Controls.Add(this.label3);
             this.given.Controls.Add(this.infor);
             this.given.Controls.Add(this.mm);
             this.given.Controls.Add(this.txtc2);
@@ -140,16 +138,6 @@
             this.given.Name = "given";
             this.given.Size = new System.Drawing.Size(510, 301);
             this.given.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(3, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(459, 19);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Bấm làm tiếp để làm thêm bài (chỉ làm 1 bài 1 lần)";
             // 
             // infor
             // 
@@ -200,7 +188,7 @@
             // 
             this.note.AutoSize = true;
             this.note.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.note.Location = new System.Drawing.Point(3, 3);
+            this.note.Location = new System.Drawing.Point(3, 13);
             this.note.Name = "note";
             this.note.Size = new System.Drawing.Size(405, 19);
             this.note.TabIndex = 21;
@@ -353,7 +341,6 @@
         private System.Windows.Forms.Label infor;
         private System.Windows.Forms.Button grid;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
     }
 }
 

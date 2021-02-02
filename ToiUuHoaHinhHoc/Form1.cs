@@ -37,6 +37,10 @@ namespace ToiUuHoaHinhHoc
             if (boundLines.Count == 0) return;
             Graphics surface = paintArea.CreateGraphics();
             Pen grayPen = new Pen(Color.DarkGray, 1);
+            SolidBrush wBrush = new SolidBrush(Color.White);
+            Point[] pA = new Point[] { new Point(0, 0), new Point(0, 420), new Point(420, 420), new Point(420, 0) };
+            surface.FillPolygon(wBrush, pA);
+
             if (mode == 0) grayPen.Color = Color.White;
             for (int i = -1; i < (int)xwmax; i++) {
                 List<PointF> gp = new List<PointF>();
@@ -60,6 +64,12 @@ namespace ToiUuHoaHinhHoc
             //lấy các giá trị
             probar.Visible = true;
             probar.Value = 0;
+
+            crossPoints.Clear();
+            boundPoints.Clear();
+            points.Clear();
+            lines.Clear();
+            boundLines.Clear();
 
             bool isMax = mm.SelectedValue.ToString().Equals("max");
             //MessageBox.Show("Test: " + isMax);
@@ -100,7 +110,7 @@ namespace ToiUuHoaHinhHoc
             maxx += 3;
             maxy += 3;
 
-            // thêm các điểm giao giới hạn trên và phải'
+            // thêm các điểm giao giới hạn trên và phải
             //window
             xwmin = -2; ywmin = -2; xwmax = Math.Max(maxx, maxy); ywmax = xwmax;
             boundLines.Add(new Line(1, 0, -xwmin));
